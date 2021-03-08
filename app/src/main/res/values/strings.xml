@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AddressBook</string>
+    <string name="text">Address Book</string>
+    <string name="addBtn">추가</string>
+    <string name="delBtn">삭제</string>
+    <string name="viewBtn">보기</string>
+    <string name="name">이름</string>
+    <string name="phone">전화번호</string>
+    <string name="email">이메일</string>
+</resources>
