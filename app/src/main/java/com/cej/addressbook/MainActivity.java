@@ -1,8 +1,11 @@
 package com.cej.addressbook;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.View;
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(30, 20, 30, 0);
+        params.setMargins(30, 30, 30, 0);
 
         // 초기 데이터 저장
         addressList.add(new Address("조은지","010-9136-6343","dmswl_0311@naver.com"));
@@ -71,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
         // textview 갱신
         for (int i=0; i<addressList.size();i++){
             TextView view1=new TextView(this);
-            view1.setText(addressList.get(i).getName()+"　"+addressList.get(i).getPhone()+"　"+addressList.get(i).getEmail());
+            view1.setId(addressList.size()+1);
+            view1.setText("이름: "+addressList.get(i).getName()+"　"+"전화번호: "+addressList.get(i).getPhone()+"　"+"이메일: "+addressList.get(i).getEmail());
             textviewLAY.addView(view1,params);
         }
     }
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(30, 20, 30, 0);
+        params.setMargins(30, 30, 30, 0);
 
         if (v.getId()==R.id.addBtn){
             // 추가 버튼을 눌렀을 때
@@ -105,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
             // textview
             TextView view1=new TextView(this);
-            view1.setText(addressList.get(addressList.size()-1).getName()+"　"+addressList.get(addressList.size()-1).getPhone()+"　"+addressList.get(addressList.size()-1).getEmail());
+            view1.setText("이름: "+addressList.get(addressList.size()-1).getName()+"　"+"전화번호: "+addressList.get(addressList.size()-1).getPhone()+"　"+"이메일: "+addressList.get(addressList.size()-1).getEmail());
+            view1.setId(addressList.size()+1);
 
             // list 갱신
             textviewLAY.addView(view1,params);
@@ -116,36 +121,54 @@ public class MainActivity extends AppCompatActivity {
             email_edit.setText("");
 
             //토스트 메세지
-            Toast.makeText(v.getContext(),"연락처 추가",Toast.LENGTH_LONG).show();
+            Toast.makeText(v.getContext(),"연락처 추가 완료",Toast.LENGTH_LONG).show();
 
         }
 
 
         if (v.getId()==R.id.delBtn){
             // 삭제 버튼을 눌렀을 때
+            // Dialog 창으로 삭제할건지 말건지 한번 더 확인
+            if (addressList.size()>0) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("확인창").setMessage("삭제하시겠습니까?");
 
-            if (addressList.size()>0){
-                // list에 있는 원소 삭제
-                addressList.remove(addressList.size()-1);
-                // textview 초기화
-                textviewLAY.removeAllViews();
-                // textview 갱신
-                for (int i=0; i<addressList.size();i++){
-                    TextView view1=new TextView(this);
-                    view1.setText(addressList.get(i).getName()+"　"+addressList.get(i).getPhone()+"　"+addressList.get(i).getEmail());
-                    textviewLAY.addView(view1,params);
-                }
+                // 취소 눌렀을 때
+                builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                // 삭제 눌렀을 때
+                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        // list에 있는 원소 삭제
+                        addressList.remove(addressList.size() - 1);
+                        // textview 초기화
+                        textviewLAY.removeAllViews();
+                        // textview 갱신
+                        for (int i = 0; i < addressList.size(); i++) {
+                            TextView view1 = new TextView(MainActivity.this);
+                            view1.setText("이름: " + addressList.get(i).getName() + "　" + "전화번호: " + addressList.get(i).getPhone() + "　" + "이메일: " + addressList.get(i).getEmail());
+                            textviewLAY.addView(view1, params);
+                        }
+                    }
+                });
+                AlertDialog alterDialog = builder.create();
+                alterDialog.show();
             }
             else{
-                //토스트 메세지
-                Toast.makeText(v.getContext(),"삭제가능한 목록이 없습니다!",Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("확인창").setMessage("삭제할 목록이 없습니다!");
+                AlertDialog alterDialog = builder.create();
+                alterDialog.show();
             }
-
 
         }
         if (v.getId()==R.id.viewBtn){
             // textview 보여주기
-            Toast.makeText(v.getContext(),"삭제가능한 목록이 없습니다!",Toast.LENGTH_LONG).show();
+            Toast.makeText(v.getContext(),"보기 누름",Toast.LENGTH_LONG).show();
         }
     }
 }
