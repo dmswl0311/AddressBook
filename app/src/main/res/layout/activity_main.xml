@@ -20,9 +20,10 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"></LinearLayout>
+                android:orientation="horizontal"/>
         </LinearLayout>
     </ScrollView>
 
@@ -37,7 +38,8 @@
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:privateImeOptions="defaultInputmode=korean"/>
 
     <EditText
         android:id="@+id/phone_edit"
@@ -46,10 +48,8 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="30dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/phone"
-        android:inputType="phone"
         android:textSize="14sp" />
 
     <EditText

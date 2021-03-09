@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 
 // Address ArrayList클래스
 class Address{
-    String name,email,phone;
+    String name,phone,email;
 
     public Address(String name,String phone,String email){
         this.name=name;
@@ -30,36 +31,42 @@ class Address{
 }
 
 public class MainActivity extends AppCompatActivity {
-    private LinearLayout linearLAY,textviewLAY;
+    private LinearLayout linearLAY,textviewLAY,linear;
     private EditText name_edit,phone_edit,email_edit;
+    
+    // ArrayList 생성
     ArrayList<Address> addressList= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // 초기화
         linearLAY=findViewById(R.id.linearLAY);
         textviewLAY=findViewById(R.id.textviewLAY);
+        linear=findViewById(R.id.linear);
 
         // 입력받은 이름, 전화번호, 이메일
         name_edit=findViewById(R.id.name_edit);
         phone_edit=findViewById(R.id.phone_edit);
         email_edit=findViewById(R.id.email_edit);
+        
+        // 초기 데이터 메소드 실행
         first();
 
     }
 
-    // 초기에 저장된 데이터 함수
+    // 초기에 저장된 데이터 메소드
     public void first(){
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         params.setMargins(30, 20, 30, 0);
 
+        // 초기 데이터 저장
         addressList.add(new Address("조은지","010-9136-6343","dmswl_0311@naver.com"));
-        addressList.add(new Address("홍길동","010-1234-1234","gildong@naver.com"));
-
-        textviewLAY.removeAllViews();
+        addressList.add(new Address("홍길동","010-1234-5678","gildong@naver.com"));
 
         // textview 갱신
         for (int i=0; i<addressList.size();i++){
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // 버튼을 클릭했을 때 실행되는 함수
+    // 버튼을 클릭했을 때 실행되는 메소드
     public void onClick(View v){
 
         // 레이아웃 설정
@@ -89,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 phone_edit.setText("010-0000-0000");
             }
             if (email_edit.getText().length()==0){
-                email_edit.setText("dmswl_0311@naver.com");
+                email_edit.setText("email@naver.com");
             }
 
             // Address 클래스에 추가
@@ -109,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             email_edit.setText("");
 
             //토스트 메세지
-            Toast.makeText(MainActivity.this,"연락처 추가",Toast.LENGTH_SHORT).show();
+            Toast.makeText(v.getContext(),"연락처 추가",Toast.LENGTH_LONG).show();
 
         }
 
@@ -131,13 +138,14 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 //토스트 메세지
-                Toast.makeText(MainActivity.this,"삭제가능한 목록이 없습니다!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(),"삭제가능한 목록이 없습니다!",Toast.LENGTH_LONG).show();
             }
 
 
         }
         if (v.getId()==R.id.viewBtn){
             // textview 보여주기
+            Toast.makeText(v.getContext(),"삭제가능한 목록이 없습니다!",Toast.LENGTH_LONG).show();
         }
     }
 }
