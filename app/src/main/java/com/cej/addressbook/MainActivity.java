@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         linear=findViewById(R.id.linear);
 
         // 입력받은 이름, 전화번호, 이메일
-        name_edit=findViewById(R.id.name_ed);
-        phone_edit=findViewById(R.id.phone_ed);
-        email_edit=findViewById(R.id.email_ed);
+        name_edit=findViewById(R.id.name_edit);
+        phone_edit=findViewById(R.id.phone_edit);
+        email_edit=findViewById(R.id.email_edit);
         
         // 초기 데이터 메소드 실행
         first();
