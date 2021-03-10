@@ -158,4 +158,14 @@
             android:onClick="click"
             android:text="@android:string/cancel" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/finishBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="160dp"
+        android:onClick="click"
+        android:text="@string/finishBTN"
+        android:textSize="12sp" />
 </LinearLayout>

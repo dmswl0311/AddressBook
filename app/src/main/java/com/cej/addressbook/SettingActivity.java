@@ -2,6 +2,7 @@ package com.cej.addressbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,7 @@ public class SettingActivity extends AppCompatActivity {
 
     private LinearLayout setLAY;
     private EditText id_edit;
-    private Button modBTN,saveBTN,cancelBTN;
+    private Button modBTN,saveBTN,cancelBTN,finishBTN;
     private RadioGroup radioGroup;
     private RadioButton radioBTN1,radioBTN2,radioBTN3;
     private CheckBox checkBox1,checkBox2;
@@ -38,12 +39,15 @@ public class SettingActivity extends AppCompatActivity {
         modBTN=findViewById(R.id.modBTN);
         saveBTN=findViewById(R.id.saveBTN);
         cancelBTN=findViewById(R.id.saveBTN);
+        finishBTN=findViewById(R.id.finishBTN);
         radioGroup=findViewById(R.id.radioGroup);
         radioBTN1=findViewById(R.id.radioBTN1);
         radioBTN2=findViewById(R.id.radioBTN2);
         radioBTN3=findViewById(R.id.radioBTN3);
         checkBox1=findViewById(R.id.checkBox1);
         checkBox2=findViewById(R.id.checkBox2);
+
+        Intent moveINT=getIntent();
 
         // 라디오 버튼
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -89,6 +93,9 @@ public class SettingActivity extends AppCompatActivity {
                 id_edit.setFocusable(false);
                 break;
             case (R.id.cancelBTN):
+                break;
+            case R.id.finishBTN:
+                finish();
                 break;
         }
     }

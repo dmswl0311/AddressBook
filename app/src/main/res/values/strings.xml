@@ -23,4 +23,6 @@
     <string name="save">SAVE</string>
     <string name="cancel">CANCEL</string>
     <string name="nameid">CHO</string>
+    <string name="settingBTN">setting</string>
+    <string name="finishBTN">뒤로가기</string>
 </resources>

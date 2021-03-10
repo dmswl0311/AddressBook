@@ -2,9 +2,11 @@ package com.cej.addressbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +57,7 @@ public class AddressActivity extends AppCompatActivity {
     // View Object ----------------------------------------
     private EditText name_ed,phone_ed,email_ed;
     private TextView addressTXT;
+    private Button settingBTN;
 
     // Data --------------------------------------------------
     private ArrayList<Address2> addressList=new ArrayList<>();
@@ -73,6 +76,7 @@ public class AddressActivity extends AppCompatActivity {
         email_ed=findViewById(R.id.email_ed);
 
         addressTXT=findViewById(R.id.addressTXT);
+        settingBTN=findViewById(R.id.settingBTN);
 
         if(D) Log.i(TAG,"onCreate()");
     }
@@ -132,6 +136,10 @@ public class AddressActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(this, R.string.nothing, Toast.LENGTH_LONG).show();
                 }
+                break;
+            case R.id.settingBTN:
+                Intent MoveINT=new Intent(AddressActivity.this,SettingActivity.class);
+                startActivity(MoveINT);
                 break;
 
         }

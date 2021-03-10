@@ -119,8 +119,18 @@
     <TextView
         android:id="@+id/addressTXT"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="386dp"
         android:text="@string/nothing" />
+
+    <Button
+        android:id="@+id/settingBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:onClick="onClick"
+        android:text="@string/settingBTN"
+        android:textSize="12sp" />
 
 
 </LinearLayout>
