@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AddressBook">
-<!--        <activity android:name=".AddressActivity"></activity>-->
-        <activity android:name=".AddressActivity">
+        <!--<activity android:name=".SettingActivity"></activity>-->
+        <!-- <activity android:name=".AddressActivity"></activity> -->
+        <activity android:name=".SettingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

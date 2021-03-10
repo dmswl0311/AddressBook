@@ -9,4 +9,18 @@
     <string name="email">이메일</string>
     <string name="nothing">Nothing</string>
     <string name="add_msg">You must enter three items.</string>
+    <string name="title">SETTING</string>
+    <string name="user">USER</string>
+    <string name="id">ID</string>
+    <string name="thema">THEMA</string>
+    <string name="modBTN">수정</string>
+    <string name="radioBTN1">White</string>
+    <string name="radioBTN2">Dark</string>
+    <string name="radioBTN3">Blue</string>
+    <string name="select">SELECT</string>
+    <string name="checkBox1">Auto save</string>
+    <string name="checkBox2">Auto connect WiFi</string>
+    <string name="save">SAVE</string>
+    <string name="cancel">CANCEL</string>
+    <string name="nameid">CHO</string>
 </resources>
