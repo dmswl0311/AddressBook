@@ -3,6 +3,7 @@ package com.cej.addressbook;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -93,6 +94,11 @@ public class SettingActivity extends AppCompatActivity {
                 id_edit.setFocusable(false);
                 break;
             case (R.id.cancelBTN):
+                checkBox1.setChecked(false);
+                checkBox2.setChecked(false);
+                radioBTN1.setChecked(false);
+                radioBTN2.setChecked(false);
+                radioBTN3.setChecked(false);
                 break;
             case R.id.finishBTN:
                 finish();
