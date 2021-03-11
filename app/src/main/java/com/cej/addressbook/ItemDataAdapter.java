@@ -1,6 +1,8 @@
 package com.cej.addressbook;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +59,11 @@ public class ItemDataAdapter extends ArrayAdapter<ItemData> {
         nameTXT.setText(item.getName());
         phoneTXT.setText(item.getPhone());
         emailTXT.setText(item.getEmail());
-        icon.setImageResource(item.getImgResId());
+
+        // icon 사이즈 조절
+        Bitmap bitmap= BitmapFactory.decodeResource(context.getResources(),item.getImgResId());
+        bitmap=bitmap.createScaledBitmap(bitmap,300,300,true);
+        icon.setImageBitmap(bitmap);
 
         return convertView;
 
