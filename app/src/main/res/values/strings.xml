@@ -25,4 +25,5 @@
     <string name="nameid">CHO</string>
     <string name="settingBTN">setting</string>
     <string name="finishBTN">뒤로가기</string>
+    <string name="todo">TODO</string>
 </resources>

@@ -11,15 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 class Address2{
     // Member Variable ----------------------------------
@@ -106,7 +101,7 @@ public class AddressActivity extends AppCompatActivity {
                     initEXT();
 
                     // (4) 데이터 출력
-                    adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.text1,R.id.textt2,R.id.text3});
+                    adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.nameTXT,R.id.phoneTXT,R.id.emailTXT});
                     listview.setAdapter(adapter);
                     Toast.makeText(this, "추가 완료", Toast.LENGTH_SHORT).show();
                 }
@@ -137,7 +132,7 @@ public class AddressActivity extends AppCompatActivity {
                         addressList.remove(clickid);
 
                         // 데이터 출력
-                        adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.text1,R.id.textt2,R.id.text3});
+                        adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.nameTXT,R.id.phoneTXT,R.id.emailTXT});
                         listview.setAdapter(adapter);
                         clickid=100;
                     }
@@ -179,7 +174,7 @@ public class AddressActivity extends AppCompatActivity {
         map.put("email","dmswl_0311@naver.com");
         addressList.add(map);
 
-        adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.text1,R.id.textt2,R.id.text3});
+        adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.nameTXT,R.id.phoneTXT,R.id.emailTXT});
 
         listview.setAdapter(adapter);
 
