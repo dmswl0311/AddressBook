@@ -121,7 +121,6 @@ public class AddressActivity extends AppCompatActivity {
             case R.id.deletebtn:
                 // 가장 최근에 추가한 데이터 삭제
                 if (addressList.size()>0) {
-
                     // 삭제 할 item 선택
                     listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
@@ -140,6 +139,7 @@ public class AddressActivity extends AppCompatActivity {
                         // 데이터 출력
                         adapter=new SimpleAdapter(this,addressList, R.layout.addressdata,new String[]{"name","phone","email"},new int[]{R.id.text1,R.id.textt2,R.id.text3});
                         listview.setAdapter(adapter);
+                        clickid=100;
                     }
                 }
                 else{
