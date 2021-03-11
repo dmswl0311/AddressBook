@@ -116,11 +116,10 @@
             android:text="@string/delBtn" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/addressTXT"
+    <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
-        android:layout_height="386dp"
-        android:text="@string/nothing" />
+        android:layout_height="392dp" />
 
     <Button
         android:id="@+id/settingBTN"
