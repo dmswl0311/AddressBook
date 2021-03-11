@@ -26,6 +26,7 @@ public class ItemDataAdapter extends ArrayAdapter<ItemData> {
 
     // Constructor Method-----------------------------
     public ItemDataAdapter(@NonNull Context context, int resource, @NonNull ArrayList<ItemData> objects) {
+
         super(context, resource, objects);
         this.context=context;
         this.layoutResId=resource;
@@ -43,14 +44,26 @@ public class ItemDataAdapter extends ArrayAdapter<ItemData> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // Data ==> XML Layout 넣어서 보이고 사용할 수 있도록 객체 생성
         // (1) item Layout xml ==> java 객체로 변환해야 함
-        LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(layoutResId,null);
+        if (convertView==null){
+            LayoutInflater inflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(layoutResId,null);
+
+            ItemDataHolder holder= new ItemDataHolder(convertView);
+            convertView.setTag(holder);
+        }
+        ItemDataHolder holder = (ItemDataHolder) convertView.getTag();
 
         // (2) item Layout's view 객체 가져오기
-        ImageView icon=convertView.findViewById(R.id.icon);
-        TextView nameTXT=convertView.findViewById(R.id.nameTXT);
-        TextView phoneTXT=convertView.findViewById(R.id.phoneTXT);
-        TextView emailTXT=convertView.findViewById(R.id.phoneTXT);
+//        ImageView icon=convertView.findViewById(R.id.icon);
+//        TextView nameTXT=convertView.findViewById(R.id.nameTXT);
+//        TextView phoneTXT=convertView.findViewById(R.id.phoneTXT);
+//        TextView emailTXT=convertView.findViewById(R.id.phoneTXT);  ==> holder class 에서 진행
+
+        TextView nameTXT=holder.nameTXT;
+        TextView phoneTXT=holder.phoneTXT;
+        TextView emailTXT=holder.emailTXT;
+        ImageView icon=holder.icon;
+
 
         // (3) Data 준비
         final ItemData item=dataList.get(position);
