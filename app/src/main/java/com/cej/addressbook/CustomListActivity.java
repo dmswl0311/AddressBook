@@ -4,7 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ClipData;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -42,5 +49,25 @@ public class CustomListActivity extends AppCompatActivity {
         // adapter 붙이기
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(CustomListActivity.this,"클릭함",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.nameTXT:
+            case R.id.phoneTXT:
+            case R.id.emailTXT:
+                Log.i(TAG, "TEXT "+((TextView)v).getText());
+                break;
+            case R.id.icon:
+                Log.i(TAG, "IMAGE");
+
+                break;
+        }
     }
 }
